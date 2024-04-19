@@ -1,2 +1,2 @@
 # Breast Cancer Class Prediction
- Breast Cancer Class Prediction
+We aim to develop a predictive model for breast cancer diagnosis using machine learning techniques applied to a dataset containing clinical cases reported by Dr. Wolberg. Our goal is to create a model that can accurately classify breast tumors as benign or malignant based on various attributes such as clump thickness, cell size uniformity, and mitoses. By leveraging the power of machine learning, we seek to enhance the accuracy and efficiency of breast cancer diagnosis, ultimately contributing to improved patient outcomes and treatment strategies.
