@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breast Cancer Class Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            flex: 1;
+            margin-right: 20px;
+        }
+        .side-box {
+            background-color: #f0f0f0;
+            padding: 10px;
+            width: 600px; /* Adjust width as needed */
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        h3 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        p {
+            text-align: center;
+        }
+        .side-box ul {
+            list-style: none;
+            padding: 0;
+        }
+        .side-box li {
+            background-color: #e0f0ff; /* Light blue background */
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Breast Cancer Class Prediction</h2>
+        <form action="/predict" method="post">
+            <!-- Input fields for features -->
+
+            <label for="Clump_Thickness">Clump Thickness(1 -10):</label><br>
+            <input type="number" id="Clump_Thickness" name="Clump_Thickness"><br>
+
+            <label for="Uniformity_of_Cell_Size">Uniformity of Cell Size:(1-10)</label><br>
+            <input type="number" id="Uniformity_of_Cell_Size" name="Uniformity_of_Cell_Size"><br>
+
+            <label for="Uniformity_of_Cell_Shape">Uniformity of Cell Shape:(1-10)</label><br>
+            <input type="number" id="Uniformity_of_Cell_Shape" name="Uniformity_of_Cell_Shape"><br>
+
+            <label for="Marginal_Adhesion">Marginal Adhesion:(1-10)</label><br>
+            <input type="number" id="Marginal_Adhesion" name="Marginal_Adhesion"><br>
+
+            <label for="Single_Epithelial_Cell_Size">Single Epithelial Cell Size:(1-10)</label><br>
+            <input type="number" id="Single_Epithelial_Cell_Size" name="Single_Epithelial_Cell_Size"><br>
+
+            <label for="Bare_Nuclei">Bare Nuclei(1-10):</label><br>
+            <input type="number" id="Bare_Nuclei" name="Bare_Nuclei"><br>
+
+            <label for="Bland_Chromatin">Bland Chromatin:(1-10)</label><br>
+            <input type="number" id="Bland_Chromatin" name="Bland_Chromatin"><br>
+
+            <label for="Normal_Nucleoli">Normal Nucleoli:(1-10)</label><br>
+            <input type="number" id="Normal_Nucleoli" name="Normal_Nucleoli"><br>
+
+            <label for="Mitoses">Mitoses:(1-10)</label><br>
+            <input type="number" id="Mitoses" name="Mitoses"><br>
+
+            <button type="submit">Predict Breast Cancer Class</button>
+
+        </form>
+
+        {% if prediction_text %}
+        <h3>Prediction Result:</h3>
+        <p>{{ prediction_text }}</p>
+        {% endif %}
+    </div>
+
+    <div class="side-box">
+        <h3>Column Name Meanings</h3>
+        <ul>
+            <li><strong>Clump Thickness:</strong> Measures how densely packed cells are in a tissue sample. Low values (closer to 1) mean cells are scattered, while high values (closer to 10) indicate dense clusters or clumps.</li>
+            <li><strong>Uniformity of Cell Size:</strong> Measures the consistency of cell sizes in the sample. Cancer cells tend to vary in size and shape, so higher values suggest greater variation.</li>
+            <li><strong>Uniformity of Cell Shape:</strong> Measures the consistency of cell shapes in the sample. Similar to Uniformity of Cell Size, but focusing on cell shapes.</li>
+            <li><strong>Marginal Adhesion:</strong> Indicates how well cells stick together. Lower values may suggest cancerous cells losing adhesion ability.</li>
+            <li><strong>Single Epithelial Cell Size:</strong> Related to the uniformity of cell size and shape. Enlarged epithelial cells may indicate malignancy.</li>
+            <li><strong>Bare Nuclei:</strong> Refers to nuclei not surrounded by cytoplasm. Higher values suggest the presence of these nuclei, often seen in benign tumors.</li>
+            <li><strong>Bland Chromatin:</strong> Describes the texture of the nucleus. Benign cells typically have uniform chromatin, while cancer cells may have coarse and clumped chromatin.</li>
+            <li><strong>Normal Nucleoli:</strong> Measures the size and prominence of nucleoli, small structures in the nucleus. Cancer cells often have larger and more prominent nucleoli.</li>
+            <li><strong>Mitoses:</strong> Indicates the rate of cell division. Cancer cells divide rapidly and uncontrollably, so higher values suggest a higher likelihood of malignancy.</li>
+        </ul>
+    </div>
+</body>
+</html>
